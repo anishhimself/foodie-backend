@@ -2,30 +2,7 @@ const jwt = require("jsonwebtoken");
 
 const Account = require("../models/account");
 
-const verifyToken = (req, res) => {
-  const authHeader = req.get("Authorization");
-  if (!authHeader) {
-    const error = new Error("Not authenticated");
-    error.statusCode = 401;
-    throw error;
-  }
 
-  const token = authHeader.split(" ")[1];
-  let decodedToken;
-  try {
-    decodedToken = jwt.verify(token, "supersecretkey-foodWebApp");
-  } catch (err) {
-    err.statusCode = 500;
-    throw err;
-  }
-  if (!decodedToken) {
-    const error = new Error("Not authenticated");
-    error.statusCode = 401;
-    throw error;
-  }
-
-  return decodedToken.accountId;
-};
 
 exports.verifySeller = (req, res, next) => {
   const accountId = verifyToken(req, res);
