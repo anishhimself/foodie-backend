@@ -1,0 +1,8 @@
+{
+  "env": {
+    "MONGO_USER": "anishhimself",
+    "MONGO_PASSWORD": "%23Elevated%40123",
+    "MONGO_DATABASE": "myFirstDatabase",
+    "SENDGRID_KEY": "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"
+  }
+}
